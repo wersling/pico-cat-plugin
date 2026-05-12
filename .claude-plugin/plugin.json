@@ -6,6 +6,5 @@
     "name": "wersling"
   },
   "license": "MIT",
-  "hooks": "./hooks/hooks.json",
   "mcpServers": "./.mcp.json"
 }
