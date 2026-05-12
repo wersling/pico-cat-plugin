@@ -35,6 +35,23 @@
 /loop 60s /cat:balloon
 ```
 
+## 更新
+
+```bash
+/plugin update pico-cat
+/reload-plugins
+```
+
+## 卸载
+
+```bash
+/plugin uninstall pico-cat
+/reload-plugins
+
+# 同时移除 marketplace（可选）
+/plugin marketplace remove wersling/pico-cat-plugin
+```
+
 ## 原理
 
 插件通过 MCP Streamable HTTP 协议连接到 PicoCat 游戏的 Bridge 服务器（`http://127.0.0.1:23336/mcp`）。
