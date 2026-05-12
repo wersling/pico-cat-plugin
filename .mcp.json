@@ -2,7 +2,10 @@
   "mcpServers": {
     "pico_cat": {
       "type": "http",
-      "url": "http://127.0.0.1:23336/mcp"
+      "url": "http://127.0.0.1:23336/mcp",
+      "env": {
+        "NO_PROXY": "127.0.0.1,localhost"
+      }
     }
   }
 }
