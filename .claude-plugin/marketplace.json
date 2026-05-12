@@ -1,0 +1,15 @@
+{
+  "name": "pico-cat-plugin",
+  "description": "PicoCat 桌面宠物游戏 AI 工具插件市场",
+  "owner": {
+    "name": "wersling"
+  },
+  "plugins": [
+    {
+      "name": "pico-cat",
+      "source": "./",
+      "description": "PicoCat 桌面宠物 - AI Agent 交互插件，支持查询气球状态、戳气球获取奖励",
+      "version": "0.1.0"
+    }
+  ]
+}
