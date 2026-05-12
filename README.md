@@ -4,8 +4,9 @@
 
 ## 功能
 
-- **MCP 工具**：查询气球状态、戳气球获取奖励
-- **Hooks**：将 Claude Code 会话事件映射为猫咪动画
+- **气球互动**：戳气球获得金币或装饰奖励
+- **猫盆管理**：查看猫盆状态、购买消耗品并填充猫盆
+- **状态联动**：Claude Code 会话事件映射为猫咪动画
 
 ## 前置条件
 
@@ -19,26 +20,25 @@
 /plugin install pico-cat
 ```
 
-## 工具
-
-### balloon_status
-查询当前游戏中的气球状态。
-
-### balloon_pop
-戳破一个漂浮的气球，等待礼物掉落并自动开箱，返回奖励结果。
-
 ## Skill
 
-使用 `/cat:balloon` 查看和戳气球。支持 `/loop` 定时轮询：
+使用 `/pico-cat:balloon` 查看和戳气球，获得金币或装饰奖励。支持 `/loop` 定时轮询：
 
 ```
-/loop 60s /cat:balloon
+/loop 60s /pico-cat:balloon
+```
+
+使用 `/pico-cat:bowl` 管理猫盆，自动购买消耗品并填充。支持 `/loop` 定时轮询：
+
+```
+/loop 10m /pico-cat:bowl
 ```
 
 ## 更新
 
 ```bash
-/plugin update pico-cat
+# 进入插件管理菜单，选择 pico-cat 进行更新
+/plugin
 /reload-plugins
 ```
 
