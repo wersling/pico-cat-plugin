@@ -12,6 +12,8 @@
 
 - PicoCat 游戏正在运行，且设置中开启了 Bridge 自动启动
 
+![设置界面](assets/settings.png)
+
 ## 安装
 
 ```bash
