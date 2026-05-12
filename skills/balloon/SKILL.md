@@ -1,5 +1,5 @@
 ---
-name: balloon
+name: pico-cat:balloon
 description: 与猫岛中的气球互动。查看气球状态、戳气球获得金币或装饰奖励。适合用 /loop 定时轮询。
 ---
 
