@@ -1,0 +1,11 @@
+{
+  "name": "pico-cat",
+  "version": "0.1.0",
+  "description": "PicoCat 桌面宠物游戏 - AI Agent 交互插件，支持查询气球状态、戳气球获取奖励",
+  "author": {
+    "name": "wersling"
+  },
+  "license": "MIT",
+  "hooks": "./hooks/hooks.json",
+  "mcpServers": "./.mcp.json"
+}

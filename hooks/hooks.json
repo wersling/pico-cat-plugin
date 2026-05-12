@@ -1,0 +1,19 @@
+{
+  "hooks": {
+    "SessionStart": [{ "matcher": "", "hooks": [{ "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/scripts/pico-cat-hook.cjs\" SessionStart" }] }],
+    "SessionEnd": [{ "matcher": "", "hooks": [{ "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/scripts/pico-cat-hook.cjs\" SessionEnd" }] }],
+    "UserPromptSubmit": [{ "matcher": "", "hooks": [{ "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/scripts/pico-cat-hook.cjs\" UserPromptSubmit" }] }],
+    "PreToolUse": [{ "matcher": "", "hooks": [{ "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/scripts/pico-cat-hook.cjs\" PreToolUse" }] }],
+    "PostToolUse": [{ "matcher": "", "hooks": [{ "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/scripts/pico-cat-hook.cjs\" PostToolUse" }] }],
+    "PostToolUseFailure": [{ "matcher": "", "hooks": [{ "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/scripts/pico-cat-hook.cjs\" PostToolUseFailure" }] }],
+    "Stop": [{ "matcher": "", "hooks": [{ "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/scripts/pico-cat-hook.cjs\" Stop" }] }],
+    "SubagentStart": [{ "matcher": "", "hooks": [{ "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/scripts/pico-cat-hook.cjs\" SubagentStart" }] }],
+    "SubagentStop": [{ "matcher": "", "hooks": [{ "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/scripts/pico-cat-hook.cjs\" SubagentStop" }] }],
+    "PreCompact": [{ "matcher": "", "hooks": [{ "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/scripts/pico-cat-hook.cjs\" PreCompact" }] }],
+    "PostCompact": [{ "matcher": "", "hooks": [{ "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/scripts/pico-cat-hook.cjs\" PostCompact" }] }],
+    "Notification": [{ "matcher": "", "hooks": [{ "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/scripts/pico-cat-hook.cjs\" Notification" }] }],
+    "PermissionRequest": [{ "matcher": "", "hooks": [{ "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/scripts/pico-cat-hook.cjs\" PermissionRequest" }] }],
+    "Elicitation": [{ "matcher": "", "hooks": [{ "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/scripts/pico-cat-hook.cjs\" Elicitation" }] }],
+    "WorktreeCreate": [{ "matcher": "", "hooks": [{ "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/scripts/pico-cat-hook.cjs\" WorktreeCreate" }] }]
+  }
+}
