@@ -1,11 +1,25 @@
 ---
 name: pico-cat:bowl
-description: 管理猫岛中的猫盆（食盆/水盆）。查看猫盆状态、购买消耗品（水、猫粮、牛奶），并填充空猫盆。当猫盆填充量低于 20% 时自动补充。适合用 /loop 定时轮询。
+description: 管理猫岛中的猫盆（食盆/水盆/自动喂食器/自动饮水机）。查看猫盆状态、购买消耗品（水、猫粮），并填充空猫盆。当猫盆填充量低于 20% 时自动补充。适合用 /loop 定时轮询。
 ---
 
 # 猫盆管理
 
 使用 pico_cat MCP 服务器的工具管理猫盆（食盆/水盆）。
+
+## 猫盆类型
+
+### 普通猫盆
+- `contentType`: `water` / `cat_food` / `null`
+- `fillLevel`: 0-100，每次填充恢复至 100
+- 填充阈值：< 20
+
+### 自动喂食器 / 自动饮水机
+- `contentType`: `auto_food_feeder` / `auto_water_feeder`
+- `fillLevel`: 0-500，每次填充增加 100
+- 填充阈值：< 100（即 20%）
+- 从空到满最多需要 5 次填充
+- 消耗品匹配：`auto_food_feeder` 使用 `cat_food`，`auto_water_feeder` 使用 `water`
 
 ## 工具说明
 
@@ -14,8 +28,8 @@ description: 管理猫岛中的猫盆（食盆/水盆）。查看猫盆状态、
 
 返回数组，每个猫盆包含：
 - `id`: 猫盆唯一标识
-- `contentType`: 内容物类型（water/cat_food/milk/null）
-- `fillLevel`: 填充量 0-100
+- `contentType`: 内容物类型（water/cat_food/auto_food_feeder/auto_water_feeder/null）
+- `fillLevel`: 普通猫盆 0-100，自动喂食器/饮水机 0-500
 - `x`, `y`: 场景位置
 
 `contentType` 为 `null` 表示空猫盆，可以倒入任意类型的消耗品。
@@ -24,7 +38,7 @@ description: 管理猫岛中的猫盆（食盆/水盆）。查看猫盆状态、
 查询所有可购买的消耗品及价格。
 
 返回数组，每个消耗品包含：
-- `id`: 消耗品 ID（water/cat_food/milk）
+- `id`: 消耗品 ID（water/cat_food）
 - `name`: 名称
 - `price`: 单价
 - `feederContentType`: 倒入猫盆后的内容物类型
@@ -90,9 +104,16 @@ description: 管理猫岛中的猫盆（食盆/水盆）。查看猫盆状态、
 
 | 消耗品 | feederContentType | 可填充的猫盆 |
 |--------|-------------------|-------------|
-| 水 (water) | water | contentType=water 或 null |
-| 猫粮 (cat_food) | cat_food | contentType=cat_food 或 null |
-| 牛奶 (milk) | milk | contentType=milk 或 null |
+| 水 (water) | water | contentType=water / auto_water_feeder / null |
+| 猫粮 (cat_food) | cat_food | contentType=cat_food / auto_food_feeder / null |
+
+### 自动喂食器/饮水机的填充策略
+
+自动喂食器和自动饮水机容量为 500，每次填充增加 100：
+1. 检查 `fillLevel < 100` 时触发填充
+2. 计算需要的填充次数：`Math.ceil((500 - fillLevel) / 100)`
+3. 逐次调用 `fill_bowl`，每次消耗 1 个对应消耗品
+4. 如果中途消耗品不足，按购买流程补充后继续
 
 ## 循环模式
 
