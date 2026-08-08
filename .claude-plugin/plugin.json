@@ -1,6 +1,6 @@
 {
   "name": "pico-cat",
-  "version": "0.2.27",
+  "version": "0.2.28",
   "description": "PicoCat 桌面宠物游戏 - AI Agent 交互插件，支持查询气球状态、戳气球获取奖励",
   "author": {
     "name": "wersling"
