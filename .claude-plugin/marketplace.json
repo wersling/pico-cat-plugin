@@ -9,7 +9,7 @@
       "name": "pico-cat",
       "source": "./",
       "description": "PicoCat 桌面宠物 - AI Agent 交互插件，支持查询气球状态、戳气球获取奖励",
-      "version": "0.3.3"
+      "version": "0.3.4"
     }
   ]
 }
